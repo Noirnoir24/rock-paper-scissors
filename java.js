@@ -5,13 +5,13 @@ function getComputerChoice() {
     let computerChoice= Math. floor(Math. random() * (max - min + 1)) + min;
     switch (computerChoice) {
         case 1: 
-        computerChoice="Rock"
+        computerChoice="rock"
         break;
         case 2: 
-        computerChoice="Paper"
+        computerChoice="paper"
         break;
         case 3:
-        computerChoice="Scissors"
+        computerChoice="scissors"
         break;
     }
     return computerChoice
@@ -36,5 +36,36 @@ let humanScore=0
 let computerScore=0
 
 function playRound(humanChoice,computerChoice) {
-    if (humanChoice=== rock && computerChoice===scissors)
- return 0 }
+    let draw= "Draw!"
+    let winner= "You win!"
+    let loser= "You lose..."
+    if (humanChoice=== "rock" && computerChoice=== "scissors") {
+        humanScore= humanScore+1
+        console.log("Your score: "+humanScore, "Computer Score: "+computerScore)
+        return winner
+    }
+    else if (humanChoice=== "scissors" && computerChoice==="paper") {
+        humanScore= humanScore+1
+        console.log("Your score: "+humanScore, "Computer Score: "+computerScore)
+        return winner
+    }
+    else if (humanChoice=== "paper" && computerChoice==="rock") {
+        humanScore= humanScore+1
+        console.log("Your score: "+humanScore, "Computer Score: "+computerScore)
+        return winner
+    }
+    else if (humanChoice === computerChoice) {
+        console.log("Your score: "+humanScore, "Computer Score: "+computerScore)
+        return draw
+    }
+    else {
+        computerScore= computerScore+1
+        console.log("Your score: "+humanScore, "Computer Score: "+computerScore)
+        return loser}
+   }
+
+const humanSelection= getHumanChoice();
+const computerSelection= getComputerChoice();
+
+playRound(humanSelection,computerSelection);
+
